@@ -1,0 +1,27 @@
+
+<section class="section_margin">
+  <comment-form
+  submitLabel="Post"
+  (handleSubmit)="addComment({ comment: $event, parent_id: null, type: 'root', tag_id: null })"
+  ></comment-form>
+</section>
+<section class="section_margin">
+  <comment
+  *ngFor="let rootComment of comments"
+  [comment]="rootComment"
+  [currentUserId]="currentUserId"
+  (setActiveComment)="setActiveComment($event)"
+  (addComment)="addComment($event)"
+  [activeComment]="activeComment"
+  (updateComment)="updateComment($event)"
+  (showModal)="openModal($event)"
+  [canReply]="true"
+  ></comment>
+</section>
+
+<custom-modal
+*ngIf="showModal"
+[activeComment]="activeComment"
+(closeModal)="closeModal($event)"
+(deleteComment)="deleteComment($event)"
+></custom-modal>
