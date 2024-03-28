@@ -25,6 +25,7 @@ export class CommentComponent implements OnInit{
   
   showActionButtons:boolean = false
   showCommentForm:boolean = false
+  showReplies:boolean = false
   
   constructor(private _router: ActivatedRoute){}
   
@@ -76,4 +77,5 @@ export class CommentComponent implements OnInit{
   showButtons(){
     this.showActionButtons = !this.showActionButtons
   }
+
 }
